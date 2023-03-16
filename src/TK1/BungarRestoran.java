@@ -101,7 +101,7 @@ public class BungarRestoran {
         System.out.printf("Total Pembelian\t\t\t\t\t\t\t\t\t\t=\tRp.\t%.2f\n", totalPrice);
         System.out.printf("Disc. 10 %% (Masa Promosi)\t\t\t\t\t\t\t=\tRp.\t%.2f -\n", discountPrice);
         System.out.println("=========================================================================");
-        System.out.printf("Total Pembelian setelah disc %d %%\t\t\t\t=\tRp.\t%.2f\n", (int) (discountPrice*100), totalPriceAfterDiscount);
+        System.out.printf("Total Pembelian setelah disc %d %%\t\t\t\t=\tRp.\t%.2f\n", (int) (discount*100), totalPriceAfterDiscount);
         System.out.printf("Pembelian per orang (untuk %d orang)\t\t\t\t\t=\tRp.\t%.2f\n", totalPelanggan, priceEachPerson);
 
         System.out.println("\n\nTerima kasih atas kunjungan Anda...\n");
