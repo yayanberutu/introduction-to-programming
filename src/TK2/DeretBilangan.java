@@ -14,7 +14,7 @@ public class DeretBilangan {
     /** max length of nama */
     public static int maxNamaLength = 25;
 
-    /** max length of nim */
+    /** length of nim */
     public static int nimLength = 10;
 
     /** minimal number to be printed as deret */
