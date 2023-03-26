@@ -15,7 +15,7 @@ public class DeretBilangan {
     public static int maxNamaLength = 25;
 
     /** max length of nim */
-    public static int maxNimLength = 10;
+    public static int nimLength = 10;
 
     /** minimal number to be printed as deret */
     public static int minNum = 5;
@@ -98,7 +98,7 @@ public class DeretBilangan {
         } while (!isValidDataMahasiswa("nama", mahasiswa.getNama()));
 
         do {
-            System.out.printf("Masukkan NIM Anda [harus %d karakter] : ", maxNimLength);
+            System.out.printf("Masukkan NIM Anda [harus %d karakter] : ", nimLength);
             mahasiswa.setNim(scanner.nextLine());
         } while (!isValidDataMahasiswa("nim", mahasiswa.getNim()));
 
@@ -120,7 +120,7 @@ public class DeretBilangan {
             return value.length() >= minNamaLength && value.length() <= maxNamaLength;
         }
         if(kind.equals("nim")){
-            return value.length() <= maxNimLength;
+            return value.length() == nimLength;
         }
 
         return false;
