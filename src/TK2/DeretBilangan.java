@@ -111,6 +111,8 @@ public class DeretBilangan {
 
     /**
      * This method is used to check if nama and nim is in valid length
+     * Nama is valid if the length of nama is between min and max length of name
+     * Nim is valid if only the length of nim equals to nimLength
      * @param kind
      * @param value
      * @return
