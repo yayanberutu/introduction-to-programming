@@ -41,9 +41,13 @@ public class DeretBilangan {
             scanNumber();
             printDeret();
 
-            System.out.print("Anda ingin mengulang [y/t] : ");
-            repeat = scanner.next().charAt(0);
-            scanner.nextLine();
+            // program will alway show input char below if user input except 'y' or 't'
+            do{
+                System.out.print("Anda ingin mengulang [y/t] : ");
+                repeat = scanner.next().charAt(0);
+                scanner.nextLine();
+            } while (!(repeat == 'y' || repeat == 't'));
+
         } while (repeat == 'y');
     }
 
