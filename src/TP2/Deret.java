@@ -33,6 +33,9 @@ public class Deret {
 
             System.out.print("Anda mau ulang [y/t] : ");
             repeat = scanner.next().charAt(0);
+            if((repeat != 'y') && (repeat != 't')){
+                throw new IOException("Wrong input number for repeat. The valid is 't' or 'y'");
+            }
         } while (repeat == 'y');
     }
 
