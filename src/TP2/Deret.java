@@ -121,10 +121,10 @@ public class Deret {
                 break;
             case "diff":
                 if((num < minInputDiffNumber)){
-                    throw new InvalidInputNumberException("input diff cannot be smaller than " + minInputLengthSequenceNum);
+                    throw new InvalidInputNumberException("input diff cannot be smaller than " + minInputDiffNumber);
                 }
                 if((num > maxInputDiffNumber)){
-                    throw new InvalidInputNumberException("input diff length cannot be bigger than " + maxInputLengthSequenceNum);
+                    throw new InvalidInputNumberException("input diff length cannot be bigger than " + maxInputDiffNumber);
                 }
                 break;
         }
