@@ -79,8 +79,9 @@ public class CoepoeWordPuzzle {
             System.out.printf("You had answered %d times with %d right answers..\n\n", maxChancePerLevel, scoreEachLevel/10);
 
 
-            // kalau mencapai passing grade, maka level akan dinaikkan
-            // tetapi kalau tidak, maka tidak dinaikkan
+            // cek skor yang didapat setiap level
+            // ketika skor yang didapat dibawah passing grade, maka akan meminta inputan apakah akan mengulang atau tidak
+            // tetapi kalau mencapai passing grade, maka level akan dinaikkan
             if(scoreEachLevel < passingGradeEachLevel){
                 System.out.println("You Loss!! Try Again..");
                 System.out.print("Do you want to retry[y/t] ? ");
