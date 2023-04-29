@@ -49,15 +49,14 @@ public class CoepoeWordPuzzle {
             System.out.println("Level " + level);
             System.out.println("=============");
 
-            // print huruf yang tersedia
-            for(String str : characterListEachLevel.get(level)){
-                System.out.print(str + " ");
-            }
-            System.out.println();
+            // print huruf yang tersedia pada setiap level
+            printCharactersEachLevel(level);
 
-            // looping chance nya
+            // inisiasi skor tiap level dengan 0
             int scoreEachLevel = 0;
 
+            // variabel penampung untuk kata yang di input
+            // digunakan untuk mengecek apakah kata sudah pernah diinput atau belum
             Map<String, String> inputWords = new HashMap<>();
 
             for(int i=1; i <= maxChancePerLevel; i++){
@@ -73,8 +72,9 @@ public class CoepoeWordPuzzle {
                     scoreEachLevel += 10;
                     System.out.println("#Right. Score : " + scoreEachLevel);
                 }
-                inputWords.put(inputWord, inputWord);
 
+                // input kata ke variabel penampung
+                inputWords.put(inputWord, inputWord);
             }
 
             System.out.printf("You had answered %d times with %d right answers..\n\n", maxChancePerLevel, scoreEachLevel/10);
@@ -100,6 +100,7 @@ public class CoepoeWordPuzzle {
                     break;
                 }
             } else {
+                // print kata yang valid setiap level
                 printValidWords(level);
                 level++;
             }
@@ -130,6 +131,16 @@ public class CoepoeWordPuzzle {
         System.out.println("\n\n");
     }
 
+    /**
+     * This method is to print given character on each level
+     * @param level
+     */
+    private static void printCharactersEachLevel(int level){
+        for(String str : characterListEachLevel.get(level)){
+            System.out.print(str + " ");
+        }
+        System.out.println();
+    }
     /**
      * This method is to check is the input word is correct
      * There are 3 steps to check:
