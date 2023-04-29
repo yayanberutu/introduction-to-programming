@@ -22,6 +22,8 @@ public class CoepoeWordPuzzle {
 
     public static Map<Integer, List<String>> wordLevel = initiateCoepoeWordWithMap();
 
+    public static Map<Integer, List<String>> validWordsMap;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         printRule();
@@ -171,4 +173,37 @@ public class CoepoeWordPuzzle {
 
     }
 
+    private static void initiateValidWords(){
+        Map<Integer, List<String>> validWordsMap = new HashMap<>();
+
+        // For Level 1, below are the valid words:
+        // tilted, titled
+        // tilde, tiled, title
+        // deil, deli, delt, diel, diet, dite, edit, idle, lied, lite, tide, tied, tile, tilt
+        // del, die, dit, eld, led, lei, let, lid, lie, lit, ted, tel, tet, tie, til, tit
+        validWordsMap.put(1, new ArrayList<>(Arrays.asList("del","die","dit","eld","led","lei","let","lid","lie",
+                "lit","ted","tel","tet","tie","til","tit",
+                "deil","deli","delt","diel","diet","dite","edit","idle", "lied","lite","tide","tied","tile","tilt",
+                "tilde","tiled","title",
+                "tilted","titled")));
+
+        // For Level 2, below are the valid words:
+        // encase, seance, seneca
+        // acnes, canes, cease, cense, scena, scene
+        // aces, acne, anes, cane, cans, case, cees, ease, esne, sane, scan, seen, sene
+        // ace, ane, can, cee, ens, nae, nee, sac, sae, sea, sec, see, sen
+        validWordsMap.put(2, new ArrayList<>(Arrays.asList("ace","ane","can","cee","ens","nae","nee","sac","sae","sea","sec","see","sen",
+                "aces","acne","anes","cane","cans","case","caes","ease","esne","sane","scan","seen","sene",
+                "acnes","canes","cease","cense","scena","scene",
+                "encase", "seance","seneca")));
+
+        // For Level 3, below are the valid words:
+        // heron, honer, krone
+        // hern, hero, hoer, hoke, hone, horn, keno, kern, kore, okeh
+        // eon, ern, hen, her, hoe, hon, ken, kor, noh, nor, oke, one, ore, rho, roe
+        validWordsMap.put(3, new ArrayList<>(Arrays.asList("eon","ern","her","hoe","hon","ken","kor","noh","nor","oke","one","ore","rho","roe",
+                "hern","hero","hoer","hoke","hone","horn","keno","kern","kore","okeh",
+                "heron","honer","krone")));
+
+    }
 }
