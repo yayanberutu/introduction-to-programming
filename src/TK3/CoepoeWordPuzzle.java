@@ -14,25 +14,32 @@ public class CoepoeWordPuzzle {
     /** kesempatan maksimal dalam setiap level */
     public static final int maxChancePerLevel = 10;
 
+    /** panjang minimal kata yang valid yang di input */
     public static final int minInputWordLength = 3;
 
+    /** panjang maksimal kata valid yang di input */
     public static final int maxInputWordLength = 6;
 
+    /** passing grade setiap level */
     public static final int passingGradeEachLevel = 70;
 
-    public static Map<Integer, List<String>> wordLevel;
+    /** list huruf setiap level */
+    public static Map<Integer, List<String>> characterListEachLevel;
 
+    /** Map yang berisi List of kata-kata yang valid */
     public static Map<Integer, List<String>> validWordsMap;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        printRule();
-        initiateCoepoeWordWithMap();
-        initiateValidWords();
 
-        //level 1 = d, e, t, t, l ,i
-        //level 2 = s, e, c, a, e, n
-        //level 3 = h, k, r, n, e, o
+        // Step 1: print rule pada game word puzzle
+        printRule();
+
+        // inisiasi charace
+        initiateCharactersEachLevel();
+
+        // inisiasi kata-kata yang valid
+        initiateValidWords();
 
         int level = 1;
         int totalScore = 0;
@@ -42,7 +49,7 @@ public class CoepoeWordPuzzle {
             System.out.println("=============");
 
             // print huruf yang tersedia
-            for(String str : wordLevel.get(level)){
+            for(String str : characterListEachLevel.get(level)){
                 System.out.print(str + " ");
             }
             System.out.println();
@@ -52,7 +59,7 @@ public class CoepoeWordPuzzle {
 
             Map<String, String> inputWords = new HashMap<>();
 
-            for(int i=1; i<=10; i++){
+            for(int i=1; i <= maxChancePerLevel; i++){
                 System.out.printf("%d) Your Answer : ", i);
                 String inputWord = scanner.nextLine();
 
@@ -111,6 +118,18 @@ public class CoepoeWordPuzzle {
         System.out.println("\n\n");
     }
 
+    /**
+     * This method is to check is the input word is correct
+     * There are 3 steps to check:
+     *  Step 1 : Check if the word is in correct length.
+     *           For now the minimum length is 3 and the maximum length is 6.
+     *  Step 2 : Check if the input word is constructed by the given character each level.
+     *           This is the optional checking since the third step ensure the step 2 is true.
+     *  Step 3 : Check if the word is valid in english
+     * @param inputWord
+     * @param level
+     * @return
+     */
     private static boolean isCorrectInputWord(String inputWord, int level) {
         // cek length
         if(inputWord.length() < minInputWordLength || inputWord.length() > maxInputWordLength){
@@ -123,44 +142,50 @@ public class CoepoeWordPuzzle {
         }
 
         // is valid word in english
-        if(!isValidWordInEnglish(inputWord, level)){
-            return false;
-        }
-
-        return true;
+        return isValidWordInEnglish(inputWord, level);
     }
 
     /**
-     *
+     * This method is to check if the input word is valid in English.
+     * For now, we hardcoded the valid words in english (See {@link #initiateValidWords()} method)
+     * But we can use another method such using the API of dictionary to check if the input word is valid
      * @param inputWord
+     * @param level
      * @return
      */
     private static boolean isValidWordInEnglish(String inputWord, int level) {
         return validWordsMap.get(level).contains(inputWord);
     }
 
+    /**
+     * Method to check if a given input word is a correct combination of characters for the given level
+     * @param inputWord
+     * @param level
+     * @return
+     */
     private static boolean isCorrectCombination(String inputWord, int level) {
-        List<String> providedWords = wordLevel.get(level);
-        for(int i=0; i<inputWord.length(); i++){
-            if(!providedWords.contains(String.valueOf(inputWord.charAt(i)))){
-                return false;
-            }
-        }
+        Set<String> providedWords = new HashSet<>(characterListEachLevel.get(level));
+        List<String> inputCharacters = Arrays.asList(inputWord.split(""));
 
-        return true;
+        return providedWords.containsAll(inputCharacters);
     }
 
-
-    private static void initiateCoepoeWordWithMap() {
-        wordLevel = new HashMap<>();
-        wordLevel.put(1, new ArrayList<>(Arrays.asList("d", "e", "t", "t", "l", "i")));
-        wordLevel.put(2, new ArrayList<>(Arrays.asList("s", "e", "c", "a", "e", "n")));
-        wordLevel.put(3, new ArrayList<>(Arrays.asList("h", "k", "r", "n", "e", "o")));
+    /**
+     * This method is to initiate characters each level that want to construct
+     *  characters on level 1 = d, e, t, t, l ,i
+     *  characters on level 2 = s, e, c, a, e, n
+     *  characters on level 3 = h, k, r, n, e, o
+     */
+    private static void initiateCharactersEachLevel() {
+        characterListEachLevel = new HashMap<>();
+        characterListEachLevel.put(1, new ArrayList<>(Arrays.asList("d", "e", "t", "t", "l", "i")));
+        characterListEachLevel.put(2, new ArrayList<>(Arrays.asList("s", "e", "c", "a", "e", "n")));
+        characterListEachLevel.put(3, new ArrayList<>(Arrays.asList("h", "k", "r", "n", "e", "o")));
 
     }
 
     /**
-     * Method ini digunakan untuk mencetak rule game.
+     * This method is to print the rule of the game
      */
     private static void printRule() {
         System.out.println("Coepe World Puzzle");
@@ -173,6 +198,13 @@ public class CoepoeWordPuzzle {
 
     }
 
+    /**
+     * This method is to initiate valid words that can be constructed from character given in each level
+     *  characters on level 1 = d, e, t, t, l ,i
+     *  characters on level 2 = s, e, c, a, e, n
+     *  characters on level 3 = h, k, r, n, e, o
+     * The list of words is hardcoded and got from <a href="https://wordfind.com/">https://wordfind.com/</a>
+     */
     private static void initiateValidWords(){
         validWordsMap = new HashMap<>();
 
