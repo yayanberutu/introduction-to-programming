@@ -35,10 +35,10 @@ public class CoepoeWordPuzzle {
         // Step 1: print rule pada game word puzzle
         printRule();
 
-        // inisiasi charace
+        // initiate character each level
         initiateCharactersEachLevel();
 
-        // inisiasi kata-kata yang valid
+        // initiate valid words
         initiateValidWords();
 
         int level = 1;
@@ -105,6 +105,10 @@ public class CoepoeWordPuzzle {
         scanner.nextLine();
     }
 
+    /**
+     * This method is to print valid words based on level
+     * @param level
+     */
     private static void printValidWords(int level) {
         System.out.println("Correct Answer: ");
         int i = 1;
