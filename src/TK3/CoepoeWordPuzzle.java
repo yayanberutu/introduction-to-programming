@@ -90,7 +90,7 @@ public class CoepoeWordPuzzle {
             }
 
             totalScore += scoreEachLevel;
-        } while(level <= 3);
+        } while(level <= maxLevel);
 
         System.out.println("Overall score : " + totalScore);
         System.out.println("You Win!!");
