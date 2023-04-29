@@ -20,22 +20,19 @@ public class CoepoeWordPuzzle {
 
     public static final int passingGradeEachLevel = 70;
 
-    public static Map<Integer, List<String>> wordLevel = initiateCoepoeWordWithMap();
+    public static Map<Integer, List<String>> wordLevel;
 
     public static Map<Integer, List<String>> validWordsMap;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         printRule();
+        initiateCoepoeWordWithMap();
+        initiateValidWords();
 
         //level 1 = d, e, t, t, l ,i
         //level 2 = s, e, c, a, e, n
         //level 3 = h, k, r, n, e, o
-
-        // opsi 1 pakai map of <Integer, List<String>>
-//        Map<Integer, List<String>> wordLevel = initiateCoepoeWordWithMap();
-        // opsi 2 pakai list of list string
-//        List<List<String>> listWordLevel = initiateCoepoeWordWithList();
 
         int level = 1;
         int totalScore = 0;
@@ -88,6 +85,7 @@ public class CoepoeWordPuzzle {
                     break;
                 }
             } else {
+                printValidWords(level);
                 level++;
             }
 
@@ -98,6 +96,19 @@ public class CoepoeWordPuzzle {
         System.out.println("You Win!!");
         System.out.println("Press Enter to exit..");
         scanner.nextLine();
+    }
+
+    private static void printValidWords(int level) {
+        System.out.println("Correct Answer: ");
+        int i = 1;
+        for(String str : validWordsMap.get(level)){
+            System.out.print(str + " ");
+            if(i % 10 == 0){
+                System.out.println();
+            }
+            i++;
+        }
+        System.out.println("\n\n");
     }
 
     private static boolean isCorrectInputWord(String inputWord, int level) {
@@ -112,7 +123,7 @@ public class CoepoeWordPuzzle {
         }
 
         // is valid word in english
-        if(!isValidWordInEnglish(inputWord)){
+        if(!isValidWordInEnglish(inputWord, level)){
             return false;
         }
 
@@ -120,13 +131,12 @@ public class CoepoeWordPuzzle {
     }
 
     /**
-     * @TODO: need to implement this method
+     *
      * @param inputWord
      * @return
      */
-    private static boolean isValidWordInEnglish(String inputWord) {
-
-        return true;
+    private static boolean isValidWordInEnglish(String inputWord, int level) {
+        return validWordsMap.get(level).contains(inputWord);
     }
 
     private static boolean isCorrectCombination(String inputWord, int level) {
@@ -141,22 +151,12 @@ public class CoepoeWordPuzzle {
     }
 
 
-    private static List<List<String>> initiateCoepoeWordWithList() {
-        List<List<String>> listWordLevel = new ArrayList<>();
-        listWordLevel.add(new ArrayList<>(Arrays.asList("d", "e", "t", "t", "l", "i")));
-        listWordLevel.add(new ArrayList<>(Arrays.asList("s", "e", "c", "a", "e", "n")));
-        listWordLevel.add(new ArrayList<>(Arrays.asList("h", "k", "r", "n", "e", "o")));
-
-        return listWordLevel;
-    }
-
-    private static Map<Integer, List<String>> initiateCoepoeWordWithMap() {
-        Map<Integer, List<String>> wordLevel = new HashMap<>();
+    private static void initiateCoepoeWordWithMap() {
+        wordLevel = new HashMap<>();
         wordLevel.put(1, new ArrayList<>(Arrays.asList("d", "e", "t", "t", "l", "i")));
         wordLevel.put(2, new ArrayList<>(Arrays.asList("s", "e", "c", "a", "e", "n")));
         wordLevel.put(3, new ArrayList<>(Arrays.asList("h", "k", "r", "n", "e", "o")));
 
-        return wordLevel;
     }
 
     /**
@@ -174,7 +174,7 @@ public class CoepoeWordPuzzle {
     }
 
     private static void initiateValidWords(){
-        Map<Integer, List<String>> validWordsMap = new HashMap<>();
+        validWordsMap = new HashMap<>();
 
         // For Level 1, below are the valid words:
         // tilted, titled
