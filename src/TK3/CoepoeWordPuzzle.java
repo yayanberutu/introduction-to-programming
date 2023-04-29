@@ -1,5 +1,6 @@
 package TK3;
 
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -29,7 +30,7 @@ public class CoepoeWordPuzzle {
     /** Map yang berisi List of kata-kata yang valid */
     public static Map<Integer, List<String>> validWordsMap;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
 
         // Step 1: print rule pada game word puzzle
@@ -88,7 +89,13 @@ public class CoepoeWordPuzzle {
                 char retry = scanner.next().charAt(0);
                 scanner.nextLine();
 
-                // kalau tidak mau retry,
+                // cek apabila inputannya valid.
+                // dikatakan valid apabila inputannya adalah 'y' atau 't'
+                // kalau tidak valid, berikan exception Input Output Exception
+                if((retry != 'y') && (retry != 't')){
+                    throw new IOException("Input tidak valid. Input yang valid adalah 'y' atau 't'");
+                }
+                // kalau tidak mau retry
                 if(retry == 't') {
                     break;
                 }
