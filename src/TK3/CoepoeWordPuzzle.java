@@ -106,6 +106,7 @@ public class CoepoeWordPuzzle {
             }
 
             totalScore += scoreEachLevel;
+
         } while(level <= maxLevel);
 
         System.out.println("Overall score : " + totalScore);
@@ -204,7 +205,6 @@ public class CoepoeWordPuzzle {
         characterListEachLevel.put(1, new ArrayList<>(Arrays.asList("d", "e", "t", "t", "l", "i")));
         characterListEachLevel.put(2, new ArrayList<>(Arrays.asList("s", "e", "c", "a", "e", "n")));
         characterListEachLevel.put(3, new ArrayList<>(Arrays.asList("h", "k", "r", "n", "e", "o")));
-
     }
 
     /**
@@ -218,7 +218,6 @@ public class CoepoeWordPuzzle {
         System.out.println("1. Create a word using given characters, min 3 characters & max 6 characters.");
         System.out.println("2. Each level, you have 10 chances to answer correctly.");
         System.out.println("3. To get through to next level, you have to score 70 points each level.");
-
     }
 
     /**
