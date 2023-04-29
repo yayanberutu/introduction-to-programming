@@ -99,6 +99,7 @@ public class CoepoeWordPuzzle {
                 if(retry == 't') {
                     break;
                 }
+
             } else {
                 // print kata yang valid setiap level
                 printValidWords(level);
