@@ -18,6 +18,28 @@ public class SortSimulation {
 
         printMenu();
 
+        System.out.println("Masukkan Pilihan Anda: ");
+
+        int batasBawah, batasAtas;
+        List<Integer> randomNumbers = new ArrayList<>();
+
+        int selectedMenu = scanner.nextInt();
+        scanner.nextLine();
+        switch (selectedMenu){
+            case 1:
+                System.out.print("Batas Bawah = ");
+                batasBawah = scanner.nextInt();
+                scanner.nextLine();
+
+                System.out.println("Batas Atas = ");
+                batasAtas = scanner.nextInt();
+                scanner.nextLine();
+
+                generateRandomNumber(randomNumbers, batasBawah, batasAtas);
+                break;
+            case 2:
+                break;
+        }
     }
 
     /**
@@ -32,5 +54,14 @@ public class SortSimulation {
         System.out.println("4. Simulasi Bubble Sort - Descending");
         System.out.println("5. Simulasi Selection Sort - Descending");
         System.out.println("6. Keluar");
+    }
+
+    /**
+     * Method ini untuk melakukan generate 5 random number berdasarkan batas bawah dan batas atas
+     * @param randomNumbers
+     * @param batasBawah
+     * @param batasAtas
+     */
+    private static void generateRandomNumber(List<Integer> randomNumbers, int batasBawah, int batasAtas) {
     }
 }
