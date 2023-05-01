@@ -18,41 +18,46 @@ public class SortSimulation {
 
         printMenu();
 
-        System.out.println("Masukkan Pilihan Anda: ");
-
         int batasBawah, batasAtas;
         List<Integer> randomNumbers = new ArrayList<>();
 
-        int selectedMenu = scanner.nextInt();
-        scanner.nextLine();
-        switch (selectedMenu){
-            case 1:
-                System.out.print("Batas Bawah = ");
-                batasBawah = scanner.nextInt();
-                scanner.nextLine();
+        int selectedMenu;
+        do {
+            System.out.println("Masukkan Pilihan Anda");
+            selectedMenu = scanner.nextInt();
+            scanner.nextLine();
+            switch (selectedMenu){
+                case 1:
+                    System.out.print("Batas Bawah = ");
+                    batasBawah = scanner.nextInt();
+                    scanner.nextLine();
 
-                System.out.println("Batas Atas = ");
-                batasAtas = scanner.nextInt();
-                scanner.nextLine();
+                    System.out.print("Batas Atas = ");
+                    batasAtas = scanner.nextInt();
+                    scanner.nextLine();
 
-                generateRandomNumber(randomNumbers, batasBawah, batasAtas);
-                break;
-            case 2:
-                simulateAscendingBubbleSort(randomNumbers);
-                break;
-            case 3:
-                simulateAscendingSelectionSort(randomNumbers);
-                break;
-            case 4:
-                simulateDescendingBubbleSort(randomNumbers);
-                break;
-            case 5:
-                simulateDescendingSelectionSort(randomNumbers);
-                break;
-            case 6:
-
-                break;
-        }
+                    generateRandomNumber(randomNumbers, batasBawah, batasAtas);
+                    break;
+                case 2:
+                    simulateAscendingBubbleSort(randomNumbers);
+                    break;
+                case 3:
+                    simulateAscendingSelectionSort(randomNumbers);
+                    break;
+                case 4:
+                    simulateDescendingBubbleSort(randomNumbers);
+                    break;
+                case 5:
+                    simulateDescendingSelectionSort(randomNumbers);
+                    break;
+                case 6:
+                    System.out.println("Keluar dari program...");
+                    break;
+                default:
+                    System.out.println("Pilihan tidak valid!\n");
+                    break;
+            }
+        } while(selectedMenu != 6);
     }
 
     /**
