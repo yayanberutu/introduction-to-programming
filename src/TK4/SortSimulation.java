@@ -38,6 +38,7 @@ public class SortSimulation {
                 generateRandomNumber(randomNumbers, batasBawah, batasAtas);
                 break;
             case 2:
+                simulateAscendingBubbleSort(randomNumbers);
                 break;
         }
     }
@@ -63,5 +64,12 @@ public class SortSimulation {
      * @param batasAtas
      */
     private static void generateRandomNumber(List<Integer> randomNumbers, int batasBawah, int batasAtas) {
+    }
+
+    /**
+     * This method is to simulate how ascending bubble sort works
+     * @param randomNumbers
+     */
+    private static void simulateAscendingBubbleSort(List<Integer> randomNumbers) {
     }
 }
