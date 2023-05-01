@@ -98,4 +98,11 @@ public class SortSimulation {
      */
     private static void simulateDescendingBubbleSort(List<Integer> randomNumbers) {
     }
+
+    /**
+     * This method is to simulate how descending selection sort works
+     * @param randomNumbers
+     */
+    private static void simulateDescendingSelectionSort(List<Integer> randomNumbers) {
+    }
 }
