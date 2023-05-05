@@ -1,8 +1,6 @@
 package TK4;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @author Yosepri Disyandro Berutu (yosepri.disyandro@dana.id)
@@ -81,6 +79,15 @@ public class SortSimulation {
      * @param batasAtas
      */
     private static void generateRandomNumber(List<Integer> randomNumbers, int batasBawah, int batasAtas) {
+        Random random = new Random();
+        int range = batasAtas - batasBawah + 1;
+
+        for (int i = 0; i < 5; i++) {
+            int randomNum = random.nextInt(range) + batasBawah;
+            System.out.print(randomNum + " ");
+            randomNumbers.add(randomNum);
+        }
+        System.out.println();
     }
 
     /**
@@ -88,6 +95,21 @@ public class SortSimulation {
      * @param randomNumbers
      */
     private static void simulateAscendingBubbleSort(List<Integer> randomNumbers) {
+        int listSize = randomNumbers.size();
+        for(int i=0; i<listSize-1; i++){
+            System.out.println("Pass " + (i+1));
+            for(int j=0; j<listSize-i-1; j++){
+                printArray(randomNumbers);
+                if(randomNumbers.get(j) > randomNumbers.get(j+1)){
+                    int temp = randomNumbers.get(j);
+                    randomNumbers.set(j, randomNumbers.get(j+1));
+                    randomNumbers.set(j+1, temp);
+                }
+            }
+            System.out.println("Result of Pass " + (i+1));
+            printArray(randomNumbers);
+            System.out.println();
+        }
     }
 
     /**
@@ -109,5 +131,12 @@ public class SortSimulation {
      * @param randomNumbers
      */
     private static void simulateDescendingSelectionSort(List<Integer> randomNumbers) {
+    }
+
+    private static void printArray(List<Integer> randomNumbers) {
+        for(Integer num : randomNumbers){
+            System.out.print(num + " ");
+        }
+        System.out.println();
     }
 }
