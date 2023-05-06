@@ -2,6 +2,7 @@ package TK4;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -81,8 +82,7 @@ public class SortSimulation {
      * @param batasAtas
      */
     private static void generateRandomNumber(List<Integer> randomNumbers, int batasBawah, int batasAtas) {
-    }
-    Scanner in = new Scanner(System.in);
+         Scanner in = new Scanner(System.in);
         // Declare object
         Random randObj = new Random();
         // Loop for 5 times
@@ -90,6 +90,7 @@ public class SortSimulation {
             // Generate 5 random number between batas bawah dan batas atas
             int rNumber = randObj.nextInt((batasAtas - batasBawah)+1)+batasBawah;
             System.out.println(rNumber);
+   
         }
     }
 
