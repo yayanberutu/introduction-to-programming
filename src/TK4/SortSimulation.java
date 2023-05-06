@@ -90,10 +90,20 @@ public class SortSimulation {
             int rNumber = randObj.nextInt((batasAtas - batasBawah)+1)+batasBawah;
             randomNumbers.add(rNumber);
             System.out.println(rNumber);
-   
+
         }
     }
 
+    /**
+     * This method is to print list of number
+     * @param randomNumbers
+     */
+    public static void printNumberList(List<Integer> randomNumbers){
+        for(Integer num : randomNumbers){
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
     /**
      * This method is to simulate how ascending bubble sort works
      * @param randomNumbers
