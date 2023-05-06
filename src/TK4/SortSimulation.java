@@ -89,9 +89,9 @@ public class SortSimulation {
             // Generate 5 random number between batas bawah dan batas atas
             int rNumber = randObj.nextInt((batasAtas - batasBawah)+1)+batasBawah;
             randomNumbers.add(rNumber);
-            System.out.println(rNumber);
-
         }
+        // print hasil generate
+        printNumberList(randomNumbers);
     }
 
     /**
