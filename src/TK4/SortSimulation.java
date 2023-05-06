@@ -82,7 +82,6 @@ public class SortSimulation {
      * @param batasAtas
      */
     private static void generateRandomNumber(List<Integer> randomNumbers, int batasBawah, int batasAtas) {
-         Scanner in = new Scanner(System.in);
         // Declare object
         Random randObj = new Random();
         // Loop for 5 times
