@@ -82,6 +82,16 @@ public class SortSimulation {
      */
     private static void generateRandomNumber(List<Integer> randomNumbers, int batasBawah, int batasAtas) {
     }
+    Scanner in = new Scanner(System.in);
+        // Declare object
+        Random randObj = new Random();
+        // Loop for 5 times
+        for(int i=0; i < 5; i++){
+            // Generate 5 random number between batas bawah dan batas atas
+            int rNumber = randObj.nextInt((batasAtas - batasBawah)+1)+batasBawah;
+            System.out.println(rNumber);
+        }
+    }
 
     /**
      * This method is to simulate how ascending bubble sort works
