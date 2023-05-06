@@ -110,6 +110,22 @@ public class SortSimulation {
      * @param randomNumbers
      */
     private static void simulateAscendingBubbleSort(List<Integer> randomNumbers) {
+        int listSize = randomNumbers.size();
+        for(int i=0; i<listSize-1; i++){
+            System.out.println("Pass " + (i+1));
+            printNumberList(randomNumbers);
+            for(int j=0; j<listSize-i-1; j++){
+                if(randomNumbers.get(j) > randomNumbers.get(j+1)){
+                    int temp = randomNumbers.get(j);
+                    randomNumbers.set(j, randomNumbers.get(j+1));
+                    randomNumbers.set(j+1, temp);
+                }
+                printNumberList(randomNumbers);
+            }
+            System.out.println("\nResult of Pass " + (i+1));
+            printNumberList(randomNumbers);
+            System.out.println("\n");
+        }
     }
 
     /**
