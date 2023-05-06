@@ -37,6 +37,7 @@ public class SortSimulation {
                     generateRandomNumber(randomNumbers, batasBawah, batasAtas);
                     break;
                 case 2:
+                    randomNumbers.addAll(Arrays.asList(237, 84, 122, 260, 169));
                     simulateAscendingBubbleSort(randomNumbers);
                     break;
                 case 3:
@@ -98,17 +99,18 @@ public class SortSimulation {
         int listSize = randomNumbers.size();
         for(int i=0; i<listSize-1; i++){
             System.out.println("Pass " + (i+1));
+            printArray(randomNumbers);
             for(int j=0; j<listSize-i-1; j++){
-                printArray(randomNumbers);
                 if(randomNumbers.get(j) > randomNumbers.get(j+1)){
                     int temp = randomNumbers.get(j);
                     randomNumbers.set(j, randomNumbers.get(j+1));
                     randomNumbers.set(j+1, temp);
                 }
+                printArray(randomNumbers);
             }
-            System.out.println("Result of Pass " + (i+1));
+            System.out.println("\nResult of Pass " + (i+1));
             printArray(randomNumbers);
-            System.out.println();
+            System.out.println("\n");
         }
     }
 
