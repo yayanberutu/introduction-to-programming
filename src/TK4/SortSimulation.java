@@ -104,6 +104,7 @@ public class SortSimulation {
         }
         System.out.println();
     }
+
     /**
      * This method is to simulate how ascending bubble sort works
      * @param randomNumbers
